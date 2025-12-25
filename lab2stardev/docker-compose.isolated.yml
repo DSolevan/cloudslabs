@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+  app1:
+    build:
+      context: .
+      dockerfile: good.Dockerfile
+    ports:
+      - "${APP1_PORT:-5001}:5000"
+    environment:
+      - FLASK_ENV=${FLASK_ENV:-production}
+      - APP_NAME=app1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - net-app1
+    restart: unless-stopped
+
+  app2:
+    build:
+      context: .
+      dockerfile: good.Dockerfile
+    ports:
+      - "${APP2_PORT:-5002}:5000"
+    environment:
+      - FLASK_ENV=${FLASK_ENV:-production}
+      - APP_NAME=app2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - net-app2
+    restart: unless-stopped
+
+networks:
+  net-app1:
+    driver: bridge
+  net-app2:
+    driver: bridge

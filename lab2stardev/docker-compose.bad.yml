@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  app1:
+    build:
+      context: .
+      dockerfile: good.Dockerfile
+    container_name: app1_bad
+    ports:
+      - "5001:5000"
+    environment:
+      - FLASK_ENV=production
+
+  app2:
+    build:
+      context: .
+      dockerfile: good.Dockerfile
+    container_name: app2_bad
+    ports:
+      - "5002:5000"
+    environment:
+      - FLASK_ENV=production
