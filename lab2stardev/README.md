@@ -29,19 +29,19 @@ Docker Compose с сетевой изоляцией (docker-compose.isolated.yml
 
 ### Демонстрация:
 Запуск bad-compose и проверка видимости:
-![img.png](img.png)
+![img.png](pngs/img.png)
 Проверка видимости (контейнеры видят друг друга):
-![img_1.png](img_1.png)
+![img_1.png](pngs/img_1.png)
 Запуск good-compose и проверка видимости:
-![img_2.png](img_2.png)
+![img_2.png](pngs/img_2.png)
 Запуск isolated-compose и проверка изоляции:
-![img_3.png](img_3.png)
+![img_3.png](pngs/img_3.png)
 Проверка изоляции (контейнеры НЕ видят друг друга):
-![img_4.png](img_4.png)
+![img_4.png](pngs/img_4.png)
 Но через хост (проброшенные порты) можно обратиться к обоим:
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
-![img_7.png](img_7.png)
+![img_5.png](pngs/img_5.png)
+![img_6.png](pngs/img_6.png)
+![img_7.png](pngs/img_7.png)
 
 ## Заключение
 Наглядно увидел, как происходит изоляция, а также как best practices положительно влияют на docker
